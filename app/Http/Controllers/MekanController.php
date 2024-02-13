@@ -8,12 +8,20 @@ class MekanController extends Controller
 {
     public function getMekanDetayi($id)
     {
-        // Mekan detayını getirme işlemleri buraya eklenecek
+        $data = [
+            'message' => 'Mekan Detayi Çekilecek örneğidir.'
+        ];
+
+        return response()->json($data, 200);
     }
 
     public function getOturmaDuzeni($id)
     {
-        // Oturma düzeni getirme işlemleri buraya eklenecek
+        $data = [
+            'message' => 'Oturma Düzeni Çekilecek örneğidir.'
+        ];
+
+        return response()->json($data, 200);
     }
     
 }

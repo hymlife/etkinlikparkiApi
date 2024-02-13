@@ -8,6 +8,10 @@ class EtkinlikController extends Controller
 {
     public function getEtkinlikDetayi($id)
     {
-        // Etkinlik detayını getirme işlemleri buraya eklenecek
+        $data = [
+            'message' => 'Mekan Detayi Çekilecek örneğidir.'
+        ];
+
+        return response()->json($data, 200);
     }
 }

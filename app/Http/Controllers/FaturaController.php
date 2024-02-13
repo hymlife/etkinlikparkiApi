@@ -8,8 +8,10 @@ class FaturaController extends Controller
 {
     public function getFatura($id)
     {
-        // Fatura getirme işlemleri buraya eklenecek
-    }
+        $data = [
+            'message' => 'Faturalar Çekilecek örneğidir.'
+        ];
 
-    
+        return response()->json($data, 200);
+    }
 }

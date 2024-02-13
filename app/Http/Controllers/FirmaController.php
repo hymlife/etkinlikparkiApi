@@ -8,6 +8,13 @@ class FirmaController extends Controller
 {
     public function getFirmaBilgileri()
     {
-        // Firma bilgilerini getirme işlemleri buraya eklenecek
+        
+        
+            $data = [
+                'message' => 'Firma Bilgileri Çekilecek örneğidir.'
+            ];
+    
+            return response()->json($data, 200);
+        
     }
 }
