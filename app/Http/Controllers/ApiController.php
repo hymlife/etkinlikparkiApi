@@ -12,7 +12,7 @@ class ApiController extends Controller
     public function getKategoriler()
     {
         // categories tablosundan id, name ve slug sütunlarını çek
-        $kategoriler = Categories::select('id', 'name', 'slug')->get();
+        $kategoriler = Categories::select('id', 'name', 'slug','status')->get();
 
         // Eğer veri bulunduysa
         if ($kategoriler->count() > 0) {
