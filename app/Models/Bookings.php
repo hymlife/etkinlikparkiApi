@@ -9,6 +9,7 @@ class Bookings extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'id',
         'customer_id',
         'organiser_id',
         'event_id',
@@ -18,6 +19,8 @@ class Bookings extends Model
         'tax',
         'net_price',
         'status',
+        'created_at',
+        'updated_at',
         'event_title',
         'event_start_date',
         'event_end_date',

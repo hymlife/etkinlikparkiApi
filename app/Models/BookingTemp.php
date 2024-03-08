@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class BookingTemp extends Model
 {
-  
+
     use HasFactory;
 
     protected $table = 'bookingtemp';
-    
+
     protected $fillable = [
+        'id',
         'event_id',
         'seat_id',
         'ticket_id',
