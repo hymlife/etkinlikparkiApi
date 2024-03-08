@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categories;
 use App\Models\Events;
 use App\Models\Venues;
+use App\Models\Banners;
 use Illuminate\Http\Request;
 
 
@@ -86,6 +87,23 @@ class ApiController extends Controller
 
         return response()->json($data, 200);
 
+    }
+
+    public function getBanners()
+    {
+        $banner = Banners::all();
+
+        // Eğer veri bulunduysa
+        if ($banner->count() > 0) {
+            return response()->json($banner, 200);
+        } else {
+            // Veri bulunamadıysa
+            $data = [
+                'message' => 'banner bulunamadı.'
+            ];
+
+            return response()->json($data, 404);
+        }
     }
 }
 

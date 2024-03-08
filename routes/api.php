@@ -31,6 +31,8 @@ Route::get('/mekanlar', [ApiController::class, 'getMekanlar']);
 Route::get('/gelecek-etkinlikler', [ApiController::class, 'getGelecekEtkinlikler']);
 Route::get('/tum-etkinlikler', [ApiController::class, 'getTumEtkinler']);
 Route::get('/sozlesmeler', [ApiController::class, 'getSozlesmeler']);
+Route::get('/banners', [ApiController::class, 'getBanners']);
+
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
