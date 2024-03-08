@@ -9,7 +9,16 @@ class Categories extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name', 'slug', 'status', 'thumb', 'image', 'template', 'category_id'
+        'id',
+        'name',
+        'slug',
+        'created_at',
+        'updated_at',
+        'status',
+        'thumb',
+        'image',
+        'template',
+        'category_id'
     ];
-   
+
 }
