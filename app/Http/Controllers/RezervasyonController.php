@@ -28,7 +28,6 @@ class RezervasyonController extends Controller
 
     public function getRezervasyonDetayi($id)
     {
-        // BookingTemp tablosundan belirli sütunları seçerek tüm verileri al
         $bookingTempData = BookingTemp::all();
 
         // Eğer veri bulunduysa

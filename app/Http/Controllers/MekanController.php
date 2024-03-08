@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Seats;
 
 class MekanController extends Controller
 {
@@ -17,11 +18,13 @@ class MekanController extends Controller
 
     public function getOturmaDuzeni($id)
     {
-        $data = [
-            'message' => 'Oturma Düzeni Çekilecek örneğidir.'
-        ];
+        // Tüm verileri çekmek için Venue modelini kullanın
+        $seats = Seats::all();
+
+        // JSON formatında tüm verileri döndürün
+        return response()->json(['seats' => $seats], 200);
 
         return response()->json($data, 200);
     }
-    
+
 }

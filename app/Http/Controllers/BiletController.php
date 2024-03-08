@@ -9,7 +9,7 @@ class BiletController extends Controller
 {
     public function getBilet($id)
     {
-        $tickets = Tickets::select('id', 'title', 'price', 'quantity', 'description')->get();
+        $tickets = Tickets::all();
 
         if ($tickets->count() > 0) {
             return response()->json($tickets, 200);
@@ -17,7 +17,7 @@ class BiletController extends Controller
             $data = [
                 'message' => 'Bilet bilgisi bulunamadı.'
             ];
-    
+
             return response()->json($data, 404);
         }
     }
