@@ -13,6 +13,8 @@ use App\Http\Controllers\FirmaController;
 use App\Http\Controllers\MekanController;
 use App\Http\Controllers\RezervasyonController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SubUserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -59,3 +61,4 @@ Route::get('/fatura-getir/{id}', [FaturaController::class, 'getFatura']);
 
 Route::get('/bilet-getir/{id}', [BiletController::class, 'getBilet']);
 
+Route::resource('/sub_users', SubUserController::class);
