@@ -79,6 +79,34 @@ class ApiController extends Controller
 
     }
 
+    public function getEtkinlikFiltreCategory(Request $request)
+    {
+        // events tablosundan herşeyi çek
+        $eventsQuery = Events::query();
+
+        // Eğer category_id parametresi varsa, sadece o kategorideki etkinlikleri getir
+        if ($request->has('category_id')) {
+            $category_id = $request->input('category_id');
+            $eventsQuery->where('category_id', $category_id);
+        }
+
+        // Tüm sütunları seçmek için get metodu kullanılır
+        $events = $eventsQuery->get();
+
+        // Eğer veri bulunduysa
+        if ($events->count() > 0) {
+            return response()->json($events, 200);
+        } else {
+            // Veri bulunamadıysa
+            $data = [
+                'message' => 'etkinlik bulunamadı.'
+            ];
+
+            return response()->json($data, 404);
+        }
+    }
+
+
     public function getSozlesmeler()
     {
         $data = [
