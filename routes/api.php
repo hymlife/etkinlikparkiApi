@@ -30,7 +30,6 @@ Route::get('/kategoriler', [ApiController::class, 'getKategoriler']);
 Route::get('/mekanlar', [ApiController::class, 'getMekanlar']);
 Route::get('/gelecek-etkinlikler', [ApiController::class, 'getGelecekEtkinlikler']);
 Route::get('/tum-etkinlikler', [ApiController::class, 'getTumEtkinler']);
-Route::get('/etkinlik-filtre', [ApiController::class, 'getEtkinlikFiltreCategory']);
 
 Route::get('/sozlesmeler', [ApiController::class, 'getSozlesmeler']);
 Route::get('/banners', [ApiController::class, 'getBanners']);

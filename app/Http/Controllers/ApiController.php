@@ -62,32 +62,19 @@ class ApiController extends Controller
 
     public function getTumEtkinler(Request $request)
     {
-        // events tablosundan id, name ve slug sütunlarını çek
-        $events = Events::all();
-
-        // Eğer veri bulunduysa
-        if ($events->count() > 0) {
-            return response()->json($events, 200);
-        } else {
-            // Veri bulunamadıysa
-            $data = [
-                'message' => 'etkinlik bulunamadı.'
-            ];
-
-            return response()->json($data, 404);
-        }
-
-    }
-
-    public function getEtkinlikFiltreCategory(Request $request)
-    {
-        // events tablosundan herşeyi çek
+        // events tablosundan her şeyi çek
         $eventsQuery = Events::query();
 
         // Eğer category_id parametresi varsa, sadece o kategorideki etkinlikleri getir
         if ($request->has('category_id')) {
             $category_id = $request->input('category_id');
             $eventsQuery->where('category_id', $category_id);
+        }
+
+        // Eğer title parametresi varsa ve bu parametre içinde herhangi bir kelime varsa
+        if ($request->has('title') && $request->filled('title')) {
+            $title = $request->input('title');
+            $eventsQuery->where('title', 'like', '%' . $title . '%');
         }
 
         // Tüm sütunları seçmek için get metodu kullanılır
@@ -105,6 +92,9 @@ class ApiController extends Controller
             return response()->json($data, 404);
         }
     }
+
+
+
 
 
     public function getSozlesmeler()
